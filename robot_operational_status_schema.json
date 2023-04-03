@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "properties": {
+      "robots": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "status": {
+                    "type": "object",
+                    "properties": {
+                      "level": { "type": "string", "enum": ["operational", "needs_maintenance", "needs_repair"] },
+                      "description": { "type": "string" },
+                      "unique_id": { "type": "string" },
+                      "action": { "type": "string" }
+                    },
+                    "required": ["level", "description", "unique_id", "action"]
+                  }
+                },
+                "required": ["name", "status"]
+              }
+            }
+          },
+          "required": ["name", "components"]
+        }
+      }
+    },
+    "required": ["robots"]
+  }
