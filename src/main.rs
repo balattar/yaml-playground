@@ -35,7 +35,7 @@ fn load_yaml(file_path: &Path) -> Result<Vec<Robot>, Box<dyn std::error::Error>>
     let robots = serde_yaml::from_value::<Vec<Robot>>(data["robots"].clone())?;
 
     // Load schema and validate
-    let mut schema_file = File::open("robot_operational_status_schema.json")?;
+    let mut schema_file = File::open("./spec/robot_operational_status_schema.json")?;
     let mut schema_contents = String::new();
     schema_file.read_to_string(&mut schema_contents)?;
     let schema_json: Value = serde_json::from_str(&schema_contents)?;
@@ -106,9 +106,9 @@ let tera = match Tera::one_off(template_str, &context, false) {
 }
 
 fn main() {
-    let robots = load_yaml(Path::new("robot_operational_status.yaml")).expect("Failed to load YAML");
+    let robots = load_yaml(Path::new("./spec/robot_operational_status.yaml")).expect("Failed to load YAML");
     let html_output = render_html(&robots);
 
-    let mut html_file = File::create("robot_operational_status_rs.html").expect("Failed to create HTML file");
+    let mut html_file = File::create("./out/robot_operational_status_rs.html").expect("Failed to create HTML file");
     html_file.write_all(html_output.as_bytes()).expect("Failed to write to HTML file");
 }   

@@ -26,7 +26,7 @@ def load_yaml(file_path: str) -> List[Robot]:
     with open(file_path, 'r') as yaml_file:
         data = yaml.safe_load(yaml_file)
         
-        with open("robot_operational_status_schema.json", 'r') as schema_file:
+        with open("./spec/robot_operational_status_schema.json", 'r') as schema_file:
             schema = json.load(schema_file)
             validate(data, schema)
 
@@ -87,8 +87,8 @@ def render_html(robots: List[Robot]) -> str:
     return template.render(robots=robots)
 
 if __name__ == "__main__":
-    robots = load_yaml("robot_operational_status.yaml")
+    robots = load_yaml("./spec/robot_operational_status.yaml")
     html_output = render_html(robots)
     
-    with open("robot_operational_status_py.html", "w") as html_file:
+    with open("./out/robot_operational_status_py.html", "w") as html_file:
         html_file.write(html_output)
