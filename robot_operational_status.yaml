@@ -1,0 +1,57 @@
+robots:
+  - name: Cyborg Goku
+    components:
+      - name: Kamehameha Arm
+        status:
+          level: operational
+          description: Fully functional
+          unique_id: c001
+          action: None
+      - name: Ultra Instinct Eye
+        status:
+          level: needs_maintenance
+          description: Vision is slightly blurry
+          unique_id: c002
+          action: Calibrate Ultra Instinct Eye
+  - name: Cyborg Vegeta
+    components:
+      - name: Galick Gun Arm
+        status:
+          level: needs_repair
+          description: Energy output is low
+          unique_id: c003
+          action: Replace energy capacitor
+      - name: Saiyan Pride Sensor
+        status:
+          level: operational
+          description: Fully functional
+          unique_id: c004
+          action: None
+  - name: Cyborg Beerus
+    components:
+      - name: God of Destruction Arm
+        status:
+          level: operational
+          description: Fully functional
+          unique_id: c005
+          action: None
+      - name: Hakai Eye
+        status:
+          level: needs_maintenance
+          description: Energy focus is off
+          unique_id: c006
+          action: Adjust Hakai Eye focus
+  - name: Cyborg Whis
+    components:
+      - name: Angel Staff
+        status:
+          level: operational
+          description: Fully functional
+          unique_id: c007
+          action: None
+      - name: Time Rewind Sensor
+        status:
+          level: needs_repair
+          description: Time manipulation is unstable
+          unique_id: c008
+          action: Replace temporal stabilizer
