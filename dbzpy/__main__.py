@@ -50,12 +50,46 @@ def render_html(robots: List[Robot]) -> str:
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robot Operational Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F8F8F8;
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            color: #E74C3C;
+        }
+        h2 {
+            font-size: 28px;
+            color: #3498DB;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #34495E;
+            color: #FFF;
+            font-weight: bold;
+            padding: 8px;
+        }
+        td {
+            border: 1px solid #DDD;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #F2F2F2;
+        }
+    </style>
 </head>
 <body>
     <h1>Robot Operational Status</h1>
     {% for robot in robots %}
     <h2>{{ robot.name }}</h2>
-    <table border="1">
+    <img src="../static/{{ robot.name | lower }}.jpeg" alt="{{ robot.name }} Image" width="200" />
+    <table>
         <thead>
             <tr>
                 <th>Component</th>
